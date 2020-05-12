@@ -1,0 +1,40 @@
+#interna {
+    margin: 0 auto;
+    width: 50%;
+}
+#DivA{
+    position:relative;
+    border-width:2px;
+    width:33%;
+    height: 100px;
+    //background-color: rgb(43, 255, 0);
+    float: left;  
+}
+#DivB{
+    position:relative;
+    border-width:2px;
+    width:33%;
+    height: 100px;
+    //background-color: rgb(208, 255, 0);
+    float: left;
+}
+#DivC{
+    position: relative;
+    border-width:2px;
+    width: 33%;
+    height: 100px;
+    left:0px;
+    //background-color: red;
+    float: left;
+}
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}

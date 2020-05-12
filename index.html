@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang=”pt-br”>
+
+<head>
+    <meta charset=”UTF-8”>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>Seleção de ala</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#aVerde").click(
+                function () {
+                    var paciente = $("#nomeCliente").val();
+
+                    var html = '<div class="card text-white bg-success mb-3" id=componente' + contadorid + '>';
+                    html += '<div class="card-body">';
+                    html += '<h5 class="card-title">';
+                    html += pessoa + '</h5>';
+                    html += '</div>';
+                    html += '</div>';
+
+
+                    $("#DivA").append(html);
+                }
+            );
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div id="interna">
+        <form>
+            <div class="form-group">
+                <label for="nomeCliente">Nome:</label>
+                <input type="text" class="form-control" id="nomeCliente" aria-describedby="nomeHelp"
+                    placeholder="Nome do paciente">
+                <small id="nomeHelp" class="form-text text-muted">Insira o nome do paciente e após clique na ala
+                    adequada que o mesmo deva ser enviado.</small>
+                <button type="submit" id="aVerde" class="btn btn-success">Ala verde</button>
+                <button type="submit" id="aAmarela" class="btn btn-warning">Ala amarela</button>
+                <button type="submit" id="aVermelha" class="btn btn-danger">Ala vermerlha</button>
+            </div>
+
+            <div class="group">
+                <div id="DivA">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Sergio Moro</h5>
+                        </div>
+                    </div>
+                </div>
+                <div id="DivB">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Maria do Rosario</h5>
+                        </div>
+                    </div>
+                </div>
+                <div id="DivC">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Jair Bolsonaro</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+</html>
