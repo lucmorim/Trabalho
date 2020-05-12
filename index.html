@@ -10,20 +10,61 @@
     <title>Seleção de ala</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
+        function moveCard(contadorid, pessoa) {
+            
+            var ala = prompt("Informe a ala?")
+            if(ala == "amarela"){
+                $("#componente" + contadorid).remove();
+                addCard(contadorid, pessoa, "#DivB", "bg-warning")
+            }
+            else  if(ala == "vermelha"){
+                $("#componente" + contadorid).remove();
+                addCard(contadorid, pessoa, "#DivC", "bg-danger")
+            }
+            else  if(ala == "verde"){
+                $("#componente" + contadorid).remove();
+                addCard(contadorid, pessoa, "#DivA", "bg-success")
+            }
+            else {
+                alert("Ala invalida, porfavor informe uma ala valida. Exemplo: verde, amarela ou vermelha.")
+            }
+            
+        }
+        function addCard(contadorid, pessoa, destino, cor) {
+
+            var html = '<div class="card text-white ' + cor + ' mb-3" id=componente' + contadorid + '>';
+            html += '<div class="card-body">';
+            html += '<h5 class="card-title">';
+            html += pessoa + '</h5>';
+            html += '<button type="button" onclick="moveCard(' + contadorid + ', \''+pessoa+'\')" class="btn btn-secundary">Mover</button>'
+            html += '</div>';
+            html += '</div>';
+
+
+            $(destino).append(html);
+        }
         $(document).ready(function () {
+            var contadorid = 0;
+
             $("#aVerde").click(
                 function () {
-                    var paciente = $("#nomeCliente").val();
-
-                    var html = '<div class="card text-white bg-success mb-3" id=componente' + contadorid + '>';
-                    html += '<div class="card-body">';
-                    html += '<h5 class="card-title">';
-                    html += pessoa + '</h5>';
-                    html += '</div>';
-                    html += '</div>';
-
-
-                    $("#DivA").append(html);
+                    var pessoa = $("#nomeCliente").val();
+                    contadorid++;
+                    addCard(contadorid, pessoa, "#DivA", "bg-success")
+                }
+            );
+            $("#aAmarela").click(
+                function () {
+                    var pessoa = $("#nomeCliente").val();
+                    contadorid++;
+                    addCard(contadorid, pessoa, "#DivB", "bg-warning")
+                }
+            );
+            $("#aVermelha").click(
+                function () {
+                    var pessoa = $("#nomeCliente").val();
+                    contadorid++;
+                    addCard(contadorid, pessoa, "#DivC", "bg-danger")
                 }
             );
         });
@@ -41,31 +82,25 @@
                     placeholder="Nome do paciente">
                 <small id="nomeHelp" class="form-text text-muted">Insira o nome do paciente e após clique na ala
                     adequada que o mesmo deva ser enviado.</small>
-                <button type="submit" id="aVerde" class="btn btn-success">Ala verde</button>
-                <button type="submit" id="aAmarela" class="btn btn-warning">Ala amarela</button>
-                <button type="submit" id="aVermelha" class="btn btn-danger">Ala vermerlha</button>
+                <button type="button" id="aVerde" class="btn btn-success">Ala verde</button>
+                <button type="button" id="aAmarela" class="btn btn-warning">Ala amarela</button>
+                <button type="button" id="aVermelha" class="btn btn-danger">Ala vermerlha</button>
             </div>
 
             <div class="group">
                 <div id="DivA">
                     <div class="card text-white bg-success mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Sergio Moro</h5>
-                        </div>
+
                     </div>
                 </div>
                 <div id="DivB">
                     <div class="card text-white bg-warning mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Maria do Rosario</h5>
-                        </div>
+
                     </div>
                 </div>
                 <div id="DivC">
                     <div class="card text-white bg-danger mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Jair Bolsonaro</h5>
-                        </div>
+
                     </div>
                 </div>
 
